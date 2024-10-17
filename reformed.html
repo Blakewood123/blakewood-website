@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1c40f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Allow column direction for stacking elements */
+            height: 100vh;
+            margin: 0;
+            background-image: url('jpin.jpg'); /* Add background image URL here */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .form-container {
+            background-color: rgba(44, 62, 80, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            color: #f1c40f;
+            width: 400px;
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #f39c12;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .gender, .terms {
+            margin: 10px 0;
+        }
+
+        .gender label {
+            margin-right: 10px;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        .buttons input[type="submit"], .buttons input[type="button"] {
+            width: 45%;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        input[type="button"] {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .terms input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 10px;
+            color: #f39c12;
+        }
+
+        /* Slider styles */
+        .slider-container {
+            position: relative;
+            max-width: 200px;
+            margin: 20px auto; /* Center the slider */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 8px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form action="#" method="POST">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Enter First Name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Enter Last Name" required>
+
+            <label for="dob">Date of Birth</label>
+            <select id="dob-day" name="dob-day">
+                <option value="">Day</option>
+                <script>
+                    for (let i = 1; i <= 31; i++) {
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                    }
+                </script>
+            </select>
+            <select id="dob-month" name="dob-month">
+                <option value="">Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select id="dob-year" name="dob-year">
+                <option value="">Year</option>
+                <script>
+                    const currentYear = new Date().getFullYear();
+                    for (let i = currentYear; i >= 1920; i--) {
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                    }
+                </script>
+            </select>
+
+            <div class="gender">
+                <label for="gender">Gender</label>
+                <input type="radio" id="male" name="gender" value="male"> Male
+                <input type="radio" id="female" name="gender" value="female"> Female
+            </div>
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="">Select Country</option>
+                <option value="Kenya">Kenya</option>
+                <!-- Add more countries as needed -->
+            </select>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Enter E-mail" required>
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter Phone" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+
+            <div class="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I Agree to the Terms of use</label>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <input type="button" value="Cancel" onclick="document.getElementById('registration-form').reset();">
+            </div>
+        </form>
+
+        <div class="link">
+            <p>For more information, <a href="https://Blakewood.com" target="_blank">Click here</a>.</p>
+            <p>Email: Winstoneblakewood@gmail.com | Contact: +254736357579</p>
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <div class="slider" id="slides">
+            <img src="2.jpg" alt="Image 1">
+            <img src="3.jpg" alt="Image 2">
+            <img src="4.jpg" alt="Image 3">
+            <img src="w.jpg" alt="Image 4">
+            <img src="5.jpg" alt="Image 5">
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+            const offset = -currentIndex * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    </script>
+</body>
+</html>
